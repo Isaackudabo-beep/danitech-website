@@ -438,7 +438,7 @@ document.getElementById('socials').innerHTML = socials.map(s => `
 /* ============ CONTACT FORM ============ */
 const form = document.getElementById('contactForm');
 const status = document.getElementById('formStatus');
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(form);
   const name = (data.get('name') || '').toString().trim();
@@ -451,14 +451,42 @@ form.addEventListener('submit', (e) => {
     status.classList.add('err');
     return;
   }
-  const subject = encodeURIComponent(`New inquiry from ${name} — ${service || 'General'}`);
-  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService: ${service}\n\n${message}`);
-  window.location.href = `mailto:danitech011@gmail.com?subject=${subject}&body=${body}`;
-  setTimeout(() => {
-    status.textContent = '✓ Your message client opened — finish sending to deliver it to danitech011@gmail.com.';
+
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.setAttribute('aria-busy', 'true');
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(data.entries())),
+    });
+
+    if (response.status === 404 || response.status >= 500) {
+      throw new Error('api-unavailable');
+    }
+
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      status.textContent = result.error || 'Your message could not be sent. Please try again.';
+      status.classList.add('err');
+      return;
+    }
+
+    status.textContent = '✓ Your message was sent securely. We’ll be in touch.';
     status.classList.add('ok');
     form.reset();
-  }, 500);
+  } catch {
+    const subject = encodeURIComponent(`New inquiry from ${name} — ${service || 'General'}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService: ${service}\n\n${message}`);
+    status.textContent = 'The online form is unavailable. Your email app will open as a fallback.';
+    status.classList.add('err');
+    window.location.href = `mailto:danitech011@gmail.com?subject=${subject}&body=${body}`;
+  } finally {
+    submitButton.disabled = false;
+    submitButton.removeAttribute('aria-busy');
+  }
 });
 
 /* ============ REVEAL ON SCROLL ============ */
