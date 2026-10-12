@@ -1,0 +1,18 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Deployment and dependency artifacts
+.vercel/
+node_modules/
+
+# Private keys and certificates
+*.pem
+*.key
+
+# Local editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini

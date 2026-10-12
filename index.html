@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Dani-Tech: Building the future through technology, AI, robotics and software innovation." />
+
+  <!-- Favicon for browser tab -->
+  <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+
+  <!-- Apple Touch Icon for mobile home screens -->
+  <link rel="apple-touch-icon" href="images/logo.jpg" sizes="180x180">
+
+ 
+<link rel="icon" href="images/logo.jpg" />
+<link rel="preconnect"/>
+  <title>Dani-Tech — Building the Future Through Technology & Innovation</title>
+  <meta name="description" content="Dani-Tech is a Nigerian technology company building AI solutions, robotics, software engineering, smart home automation, digital innovation and future technologies.">
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="Dani-Tech">
+
+<meta name="keywords" content="Dani-Tech, AI Nigeria, Artificial Intelligence, Robotics, Software Engineering, Web Development, Mobile App Development, Smart Home Automation, Future Technology, Space Research, Technology Company Nigeria, Innovation, Digital Transformation">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta property="og:title" content="Dani-Tech | Innovation & Solutions">
+
+<meta property="og:description" content="Building Tomorrow's Technology Today. AI, Robotics, Software Engineering, Smart Home Automation and Future Technologies.">
+
+<meta property="og:image" content="images/logo.jpg">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://https://dani-tech.vercel.app/">
+<!-- Primary SEO -->
+<meta name="title" content="Dani-Tech | Innovation & Solutions">
+<meta name="description" content="Dani-Tech is a technology innovation company building AI, Robotics, Software, Smart Automation and future technologies. Building Tomorrow's Technology Today.">
+<meta name="keywords" content="Dani-Tech, AI, Artificial Intelligence, Robotics, Software Development, Web Development, Mobile App Development, Smart Automation, Future Technology, Nigeria Tech, FarmLink, ConversaAI, Threndz, Dani-AI, DaniOS, AI Lab, Technology Company">
+<meta name="author" content="Dani-Tech">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn, Telegram) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dani-Tech | Innovation & Solutions">
+<meta property="og:description" content="Building Tomorrow's Technology Today. AI • Robotics • Software • Smart Automation • Future Technologies.">
+<meta property="og:url" content="https://dani-tech.vercel.app/">
+<meta property="og:image" content="https://dani-tech.vercel.app/images/logo.jpg">
+<meta property="og:site_name" content="Dani-Tech">
+
+<!-- X (Twitter) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dani-Tech | Innovation & Solutions">
+<meta name="twitter:description" content="Building Tomorrow's Technology Today. AI • Robotics • Software • Smart Automation • Future Technologies.">
+<meta name="twitter:image" content="https://dani-tech.vercel.app/images/logo.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://dani-tech.vercel.app/">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Inline theme bootstrap (no flash)
+    (function () {
+      try {
+        var s = localStorage.getItem('danitech-theme');
+        var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', s || (d ? 'dark' : 'light'));
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner glass" style="display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 24px;">
+
+    <a href="#home" class="brand" style="display:flex;align-items:center;text-decoration:none;gap:14px;">
+
+<img
+  src="images/logo.jpg"
+  alt="Dani-Tech Logo"
+  style="
+    width:56px;
+    height:56px;
+    border-radius:14px;
+    object-fit:cover;
+    display:block;
+    border:3px solid #39FF14;
+    background:#08110A;
+    box-shadow:
+      0 0 8px rgba(57,255,20,.5),
+      0 0 18px rgba(57,255,20,.4),
+      0 0 30px rgba(57,255,20,.25);
+  "
+>
+      <span style="display:flex;flex-direction:column;line-height:1.15;">
+        <span style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:-0.5px;">
+          Dani-Tech
+        </span>
+
+        <span style="font-size:12px;color:#9CA3AF;font-weight:500;">
+          Innovation &amp; Solutions
+        </span>
+      </span>
+
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#dowealthhr">DowealthHR</a>
+      <a href="#ailab">AI Lab</a>
+      <a href="#robotics">Robotics</a>
+      <a href="#founder">Leadership</a>
+      <a href="#partners">Clients & Partners</a>
+    </nav>
+
+    <div class="nav-cta">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <a href="#contact" class="btn btn-primary nav-contact">
+        Contact Us
+        <span class="arrow">→</span>
+      </a>
+
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer glass-strong" id="drawer">
+  <div class="drawer-head">
+    <div class="brand">
+      <img
+        src="images/logo.jpg"
+        alt="Dani-Tech Logo"
+        style="
+          width:48px;
+          height:48px;
+          border-radius:12px;
+          object-fit:cover;
+          border:2px solid #22c55e;
+          margin-right:10px;
+          box-shadow:0 0 10px rgba(34,197,94,.25);
+        "
+      >
+      <span class="brand-name">Dani-Tech</span>
+    </div>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#dowealthhr">DowealthHR</a>
+    <a href="#ailab">AI Lab</a>
+    <a href="#robotics">Robotics</a>
+    <a href="#founder">Leadership</a>
+    <a href="#partners">Clients & Partners</a>
+  </nav>
+  <a href="#contact" class="btn btn-primary drawer-cta">Contact Us →</a>
+</aside>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="container hero-content">
+    <div class="pill reveal">
+      <span class="ping"><span></span><span></span></span> Innovation & Solutions
+    </div>
+    <h1 class="hero-title reveal">
+      Building the
+      <span class="grad">Future</span><br />
+      Through Technology<br />
+      <span class="muted">& Innovation</span>
+    </h1>
+    <p class="hero-desc reveal">
+      Empowering businesses and individuals through intelligent software, robotics,
+      AI systems, and digital innovation.
+    </p>
+    <div class="hero-cta reveal">
+      <a href="#services" class="btn btn-primary">Explore Services <span class="arrow">→</span></a>
+      <a href="#projects" class="btn btn-ghost">View Projects</a>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat float-1"><div class="stat-v neon">50+</div><div class="stat-l">Projects</div></div>
+      <div class="stat float-2"><div class="stat-v neon">AI</div><div class="stat-l">Powered</div></div>
+      <div class="stat float-3"><div class="stat-v neon">∞</div><div class="stat-l">Innovation</div></div>
+      <div class="stat float-4"><div class="stat-v neon">2026</div><div class="stat-l">Future Ready</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="section-head">
+    <span class="eyebrow reveal">• About Dani-Tech</span>
+    <h2 class="reveal">Innovation, engineered with intent.</h2>
+    <p class="reveal">Dani-Tech is an innovation-driven technology company building software, AI systems, robotics and digital solutions that improve lives and shape the future.</p>
+  </div>
+  <div class="container grid-3">
+    <div class="card glass reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <h3>Mission</h3>
+      <p>To engineer intelligent technology that solves real-world problems and empowers human potential.</p>
+    </div>
+    <div class="card glass reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Vision</h3>
+      <p>A future where AI, robotics and software act as a seamless extension of every business and creator.</p>
+    </div>
+    <div class="card glass reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+      <h3>Method</h3>
+      <p>Research, prototype, ship — guided by craft, accountability and a relentless focus on outcomes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="section-head">
+    <span class="eyebrow reveal">• What We Do</span>
+    <h2 class="reveal">Services built for the next decade.</h2>
+  </div>
+  <div class="container grid-3" id="servicesGrid"></div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="section-head">
+    <span class="eyebrow reveal">• Projects & Products</span>
+    <h2 class="reveal">What we're building right now.</h2>
+  </div>
+  <div class="container grid-3" id="projectsGrid"></div>
+</section>
+
+<!-- ============ DOWEALTHHR ============ -->
+<section class="section dowealthhr-section" id="dowealthhr">
+  <div class="section-head">
+    <span class="eyebrow reveal">• Introducing DowealthHR</span>
+    <h2 class="reveal">DowealthHR — Powered by Technology, Driven by HR Expertise</h2>
+  </div>
+
+  <div class="container">
+    <div class="dowealthhr-panel glass-strong reveal">
+      <div class="dowealthhr-brand">
+        <!-- Replace this image with the official DowealthHR logo asset when updating the brand artwork. -->
+        <img src="images/dowealthhr.png" alt="DowealthHR logo" loading="lazy" />
+        <p class="dowealthhr-partnership">A strategic partnership between Dani-Tech and Dowealth Training &amp; Consulting.</p>
+      </div>
+
+      <div class="dowealthhr-copy">
+        <p>DowealthHR is a Human Resources Management System developed through a strategic partnership between Dani-Tech and Dowealth Training &amp; Consulting, combining technology and human resource expertise to help organizations manage their people more effectively.</p>
+        <p>Designed to simplify everyday HR operations, DowealthHR brings employee management, attendance tracking, KPI and performance management, payslips, recruitment, and other essential workforce tools together in one connected platform.</p>
+        <p>By combining Dani-Tech’s software development expertise with Dowealth Training &amp; Consulting’s experience in human resources, training, and organizational development, DowealthHR aims to make workforce management simpler, more organized, and more accessible for businesses and institutions.</p>
+        <p>Together, we are building technology that helps organizations work smarter, develop their people, and create better workplaces.</p>
+
+        <p class="dowealthhr-tagline">DowealthHR — Manage your people. Improve your organization.</p>
+        <!-- Replace #contact with the verified DowealthHR URL when it is available. -->
+        <a class="btn btn-primary dowealthhr-cta" href="#contact">Explore DowealthHR <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI LAB ============ -->
+<section class="section ailab" id="ailab">
+  <div class="hero-grid soft"></div>
+  <div class="section-head">
+    <span class="eyebrow reveal">• Dani-Tech AI Lab</span>
+    <h2 class="reveal">Where intelligence becomes infrastructure.</h2>
+    <p class="reveal">Exploring intelligent systems, generative AI, machine learning, autonomous agents, robotics and future technologies.</p>
+  </div>
+  <div class="container grid-3" id="aiGrid"></div>
+</section>
+
+<!-- ============ ROBOTICS ============ -->
+<section class="section" id="robotics">
+  <div class="section-head">
+    <span class="eyebrow reveal">• Robotics & Future Systems</span>
+    <h2 class="reveal">Intelligent machines, real outcomes.</h2>
+    <p class="reveal">We believe robotics will play a defining role in solving tomorrow's challenges. Through research and engineering we build systems that improve efficiency, productivity and human potential.</p>
+  </div>
+  <div class="container grid-3">
+    <div class="robot-card glass reveal float-1">
+      <img src="images/robot1.jpg" alt="Humanoid Systems" loading="lazy" />
+      <div class="robot-label"><span class="mono">Module 01</span><h3>Humanoid Systems</h3></div>
+    </div>
+    <div class="robot-card glass reveal float-2">
+      <img src="images/robot2.jpg" alt="Robotic Manipulation" loading="lazy" />
+      <div class="robot-label"><span class="mono">Module 02</span><h3>Robotic Manipulation</h3></div>
+    </div>
+    <div class="robot-card glass reveal float-3">
+      <img src="images/robot3.jpg" alt="Mobile Autonomy" loading="lazy" />
+      <div class="robot-label"><span class="mono">Module 03</span><h3>Mobile Autonomy</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERSHIP ============ -->
+<section class="section" id="founder">
+  <div class="section-head">
+    <span class="eyebrow reveal">• Leadership</span>
+    <h2 class="reveal">Meet the visionaries behind Dani-Tech.</h2>
+    <p class="reveal">Leading innovation through technology, artificial intelligence, robotics and digital transformation.</p>
+  </div>
+
+  <div class="container leaders">
+
+    <!-- FOUNDER -->
+    <div class="founder glass-strong reveal">
+      <div class="founder-photo">
+        <div class="ring-rotate"></div>
+        <div class="photo-wrap">
+          <img src="images/ceo.jpg" alt="Oloruntoba Daniel Abiodun — Founder of Dani-Tech" />
+        </div>
+
+        <div class="chip chip-1">AI</div>
+        <div class="chip chip-2">⚡</div>
+        <div class="chip chip-3">&lt;/&gt;</div>
+      </div>
+
+      <div class="founder-body">
+
+        <h3>Oloruntoba Daniel Abiodun</h3>
+
+        <p class="founder-role">
+          Founder • "The Future Builder"
+        </p>
+
+        <p class="founder-bio">
+          Oloruntoba Daniel Abiodun is the Founder of Dani-Tech, a technology innovation company committed to building intelligent software, artificial intelligence, robotics and future digital solutions. Guided by a vision to solve real-world problems through technology, he leads the company's long-term mission of creating products that improve lives, empower businesses and shape the future of Africa and beyond.
+        </p>
+
+        <ul class="highlights">
+          <li><span class="check">✓</span> Technology Innovator</li>
+          <li><span class="check">✓</span> AI & Robotics Researcher</li>
+          <li><span class="check">✓</span> Software & Product Architect</li>
+          <li><span class="check">✓</span> Future Systems Visionary</li>
+        </ul>
+
+        <div class="socials"
+             aria-label="Founder social links"
+             style="
+             display:flex;
+             flex-wrap:wrap;
+             gap:14px;
+             margin-top:28px;
+             ">
+
+          <a href="https://www.instagram.com/danielhenry7473"
+             target="_blank"
+             style="
+             width:50px;
+             height:50px;
+             display:flex;
+             align-items:center;
+             justify-content:center;
+             text-decoration:none;
+             color:#39FF14;
+             background:rgba(255,255,255,.04);
+             border:1px solid rgba(57,255,20,.25);
+             border-radius:14px;
+             font-size:22px;
+             transition:.3s;
+             box-shadow:0 0 10px rgba(57,255,20,.08);
+             ">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+          <a href="https://wa.me/2349128802572"
+             target="_blank"
+             style="
+             width:50px;
+             height:50px;
+             display:flex;
+             align-items:center;
+             justify-content:center;
+             text-decoration:none;
+             color:#39FF14;
+             background:rgba(255,255,255,.04);
+             border:1px solid rgba(57,255,20,.25);
+             border-radius:14px;
+             font-size:22px;
+             transition:.3s;
+             box-shadow:0 0 10px rgba(57,255,20,.08);
+             ">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+
+          <a href="https://x.com/Oloruntoba95970"
+             target="_blank"
+             style="
+             width:50px;
+             height:50px;
+             display:flex;
+             align-items:center;
+             justify-content:center;
+             text-decoration:none;
+             color:#39FF14;
+             background:rgba(255,255,255,.04);
+             border:1px solid rgba(57,255,20,.25);
+             border-radius:14px;
+             font-size:22px;
+             transition:.3s;
+             box-shadow:0 0 10px rgba(57,255,20,.08);
+             ">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+
+          <a href="mailto:danitech011@gmail.com"
+             style="
+             width:50px;
+             height:50px;
+             display:flex;
+             align-items:center;
+             justify-content:center;
+             text-decoration:none;
+             color:#39FF14;
+             background:rgba(255,255,255,.04);
+             border:1px solid rgba(57,255,20,.25);
+             border-radius:14px;
+             font-size:22px;
+             transition:.3s;
+             box-shadow:0 0 10px rgba(57,255,20,.08);
+             ">
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- CEO -->
+
+     <div class="founder glass-strong reveal reverse">
+
+      <div class="founder-photo">
+        <div class="ring-rotate"></div>
+
+        <div class="photo-wrap">
+          <img src="images/ceo2.jpg" alt="Kudabo Isaac Oloruntoba — CEO of Dani-Tech"/>
+        </div>
+
+        <div class="chip chip-1">CEO</div>
+        <div class="chip chip-2">★</div>
+        <div class="chip chip-3">∞</div>
+
+      </div>
+
+      <div class="founder-body">
+
+        <h3>Kudabo Isaac Oloruntoba</h3>
+
+        <p class="founder-role">
+          Chief Executive Officer (CEO)
+        </p>
+
+        <p class="founder-bio">
+          Kudabo Isaac Oloruntoba serves as the Chief Executive Officer of Dani-Tech, providing strategic leadership and driving the company's growth. He oversees business operations, product execution, partnerships and organizational development, ensuring Dani-Tech delivers innovative technology solutions that create lasting value for businesses and communities.
+        </p>
+
+        <ul class="highlights">
+          <li><span class="check">✓</span> Executive Leadership</li>
+          <li><span class="check">✓</span> Business Strategy</li>
+          <li><span class="check">✓</span> Product Management</li>
+          <li><span class="check">✓</span> Strategic Partnerships</li>
+        </ul>
+
+        <div class="socials"
+             aria-label="CEO social links"
+             style="
+             display:flex;
+             flex-wrap:wrap;
+             gap:14px;
+             margin-top:28px;
+             ">
+
+          <a href="isaac_09.dm"
+             target="_blank"
+             style="
+             width:50px;
+             height:50px;
+             display:flex;
+             align-items:center;
+             justify-content:center;
+             text-decoration:none;
+             color:#39FF14;
+             background:rgba(255,255,255,.04);
+             border:1px solid rgba(57,255,20,.25);
+             border-radius:14px;
+             font-size:22px;
+             box-shadow:0 0 10px rgba(57,255,20,.08);
+             ">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+          <a href="https://wa.me/2347064773900" 
+             target="_blank"
+             style="
+             width:50px;
+             height:50px;
+             display:flex;
+             align-items:center;
+             justify-content:center;
+             text-decoration:none;
+             color:#39FF14;
+             background:rgba(255,255,255,.04);
+             border:1px solid rgba(57,255,20,.25);
+             border-radius:14px;
+             font-size:22px;
+             box-shadow:0 0 10px rgba(57,255,20,.08);
+             ">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+
+          <a href="kuda_b12"
+             target="_blank"
+             style="
+             width:50px;
+             height:50px;
+             display:flex;
+             align-items:center;
+             justify-content:center;
+             text-decoration:none;
+             color:#39FF14;
+             background:rgba(255,255,255,.04);
+             border:1px solid rgba(57,255,20,.25);
+             border-radius:14px;
+             font-size:22px;
+             box-shadow:0 0 10px rgba(57,255,20,.08);
+             ">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+
+          <a href="mailto:fufillmentkudabo@gmail.com"
+             style="
+             width:50px;
+             height:50px;
+             display:flex;
+             align-items:center;
+             justify-content:center;
+             text-decoration:none;
+             color:#39FF14;
+             background:rgba(255,255,255,.04);
+             border:1px solid rgba(57,255,20,.25);
+             border-radius:14px;
+             font-size:22px;
+             box-shadow:0 0 10px rgba(57,255,20,.08);
+             ">
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CTO -->
+
+    <div class="founder glass-strong reveal reverse">
+
+  <div class="founder-photo">
+
+    <div class="ring-rotate"></div>
+
+    <div class="photo-wrap">
+      <img src="images/myavatar.png" alt="Stephanie Dominic — Chief Technology Officer of Dani-Tech"/>
+    </div>
+
+    <div class="chip chip-1">CTO</div>
+    <div class="chip chip-2">💻</div>
+    <div class="chip chip-3">AI</div>
+
+  </div>
+
+  <div class="founder-body">
+
+    <h3>Stephanie Dominic</h3>
+
+    <p class="founder-role">
+      Chief Technology Officer (CTO)
+    </p>
+
+    <p class="founder-bio">
+      Stephanie Dominic, popularly known as <strong>"The Tech Steph"</strong>, serves as the Chief Technology Officer of Dani-Tech. She leads the company's software engineering, front-end development and technical innovation, transforming ideas into modern, user-friendly digital experiences. Her passion for technology and continuous learning supports Dani-Tech's vision of building world-class software, AI and future technologies.
+    </p>
+
+    <ul class="highlights">
+      <li><span class="check">✓</span> Software Engineering</li>
+      <li><span class="check">✓</span> Front-end Development</li>
+      <li><span class="check">✓</span> Technical Architecture</li>
+      <li><span class="check">✓</span> Product Innovation</li>
+    </ul>
+
+    <div class="socials"
+         aria-label="Stephanie Dominic social links"
+         style="
+         display:flex;
+         flex-wrap:wrap;
+         gap:14px;
+         margin-top:28px;
+         ">
+
+      
+      <a href="mailto:thetechsteph@gmail.com"
+         style="
+         width:50px;
+         height:50px;
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         text-decoration:none;
+         color:#39FF14;
+         background:rgba(255,255,255,.04);
+         border:1px solid rgba(57,255,20,.25);
+         border-radius:14px;
+         font-size:22px;
+         box-shadow:0 0 10px rgba(57,255,20,.08);
+         ">
+        <i class="bi bi-envelope-fill"></i>
+      </a>
+
+      <a href="https://x.com/thetechsteph"
+         target="_blank"
+         style="
+         width:50px;
+         height:50px;
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         text-decoration:none;
+         color:#39FF14;
+         background:rgba(255,255,255,.04);
+         border:1px solid rgba(57,255,20,.25);
+         border-radius:14px;
+         font-size:22px;
+         box-shadow:0 0 10px rgba(57,255,20,.08);
+         ">
+        <i class="bi bi-twitter-x"></i>
+      </a>
+
+      <a href="https://www.instagram.com/thetechsteph"
+         target="_blank"
+         style="
+         width:50px;
+         height:50px;
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         text-decoration:none;
+         color:#39FF14;
+         background:rgba(255,255,255,.04);
+         border:1px solid rgba(57,255,20,.25);
+         border-radius:14px;
+         font-size:22px;
+         box-shadow:0 0 10px rgba(57,255,20,.08);
+         ">
+        <i class="bi bi-instagram"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/stephanie-dominic-07415025b"
+         target="_blank"
+         style="
+         width:50px;
+         height:50px;
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         text-decoration:none;
+         color:#39FF14;
+         background:rgba(255,255,255,.04);
+         border:1px solid rgba(57,255,20,.25);
+         border-radius:14px;
+         font-size:22px;
+         box-shadow:0 0 10px rgba(57,255,20,.08);
+         ">
+        <i class="bi bi-linkedin"></i>
+      </a>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+<!-- ============ CLIENTS & PARTNERS ============ -->
+<section class="section" id="testimonials">
+  <div class="section-head">
+    <span class="eyebrow reveal">• Clients & Partners</span>
+    <h2 class="reveal">What Our Clients & Partners Say</h2>
+    <p class="reveal">
+      We're proud to collaborate with businesses, organizations and strategic partners who trust Dani-Tech to deliver innovative technology, digital transformation and lasting value.
+    </p>
+  </div>
+
+  <div class="marquee-wrap pause-on-hover">
+    <div class="marquee" id="testiTrack"></div>
+  </div>
+</section>
+
+<!-- ============ CLIENTS & PARTNERS ============ -->
+
+<section class="section" id="partners">
+
+    <div class="section-head">
+
+        <span class="eyebrow reveal">
+            • Clients & Strategic Partners
+        </span>
+
+        <h2 class="reveal">
+            Trusted by Businesses That Believe in Innovation
+        </h2>
+
+        <p class="reveal">
+            We proudly collaborate with organizations that trust Dani-Tech to deliver innovative software, intelligent automation, digital transformation and long-term technology solutions.
+        </p>
+
+    </div>
+
+    <div class="container grid-3" id="partnersGrid"></div>
+
+    <div class="partner-divider reveal"></div>
+
+    <div class="trusted-title reveal">
+
+        <h3>Trusted By</h3>
+
+    </div>
+
+    <div class="marquee-wrap pause-on-hover">
+
+        <div class="marquee logos" id="logoTrack"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="section-head">
+    <span class="eyebrow reveal">• Contact</span>
+    <h2 class="reveal">Let's build something intelligent together.</h2>
+    <p class="reveal">We're open to collaborations, partnerships, projects and innovative ideas.</p>
+  </div>
+  <div class="container contact-grid">
+    <form class="contact-form glass-strong reveal" id="contactForm" novalidate>
+      <div class="form-row">
+        <label>
+          <span>Full Name</span>
+          <input type="text" name="name" required maxlength="100" placeholder="Jane Doe" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required maxlength="255" placeholder="you@company.com" />
+        </label>
+      </div>
+      <label>
+        <span>Service Interested In</span>
+        <select name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option>Web Development</option>
+          <option>App Development</option>
+          <option>Robotics</option>
+          <option>Graphics Design</option>
+          <option>Branding</option>
+          <option>Social Media Management</option>
+          <option>AI / Custom</option>
+        </select>
+      </label>
+      <label>
+        <span>Message</span>
+        <textarea name="message" rows="5" required maxlength="2000" placeholder="Tell us about your project..."></textarea>
+      </label>
+      <button type="submit" class="btn btn-primary form-submit">Send Message <span class="arrow">→</span></button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+
+    <div class="contact-list" id="contactList"></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner glass-strong">
+
+    <div class="footer-grid">
+
+      <!-- Company -->
+      <div>
+
+        <div class="brand" style="display:flex;align-items:center;gap:16px;">
+
+          <img
+            src="images/logo.jpg"
+            alt="Dani-Tech Logo"
+            style="
+              width:56px;
+              height:56px;
+              border-radius:14px;
+              object-fit:cover;
+              display:block;
+              border:3px solid #39FF14;
+              background:#08110A;
+              box-shadow:
+                0 0 8px rgba(57,255,20,.5),
+                0 0 18px rgba(57,255,20,.4),
+                0 0 30px rgba(57,255,20,.25);
+              flex-shrink:0;
+            "
+          >
+
+          <div style="display:flex;flex-direction:column;justify-content:center;">
+
+            <span style="
+              font-size:24px;
+              font-weight:800;
+              color:#ffffff;
+              letter-spacing:-0.5px;
+            ">
+              Dani-Tech
+            </span>
+
+            <span style="
+              font-size:13px;
+              color:#9CA3AF;
+              font-weight:500;
+              margin-top:3px;
+            ">
+              Innovation &amp; Solutions
+            </span>
+
+          </div>
+
+        </div>
+
+        <p style="
+          margin-top:24px;
+          line-height:1.8;
+          color:#C8CDD6;
+          font-size:15px;
+        ">
+
+          <strong style="color:#ffffff;font-size:17px;">
+            Building Tomorrow's Technology Today.
+          </strong>
+
+          <br><br>
+
+          Dani-Tech develops intelligent software, Artificial Intelligence,
+          Robotics, Smart Automation and future technologies that solve
+          real-world problems, empower businesses and improve everyday life.
+
+        </p>
+
+        <div style="margin-top:22px;">
+          <div class="socials" id="socials"></div>
+        </div>
+
+      </div>
+
+      <!-- Company -->
+      <div>
+
+        <h4>Company</h4>
+
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#founder">Leadership</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+      </div>
+
+      <!-- Products -->
+      <div>
+
+        <h4>Products</h4>
+
+        <ul>
+          <li><a href="#projects">FarmLink</a></li>
+          <li><a href="#projects">ConversaAI</a></li>
+          <li><a href="#projects">Threndz</a></li>
+          <li><a href="#projects">Climax AI</a></li>
+          <li><a href="#projects">Dani-AI</a></li>
+        </ul>
+
+      </div>
+
+      <!-- Contact -->
+      <div>
+
+        <h4>Contact</h4>
+
+        <ul>
+
+          <li>
+            <a href="mailto:danitech011@gmail.com">
+              📧 danitech011@gmail.com
+            </a>
+          </li>
+
+          <li>
+            <a href="tel:+2349128802572">
+              📞 +234 912 880 2572
+            </a>
+          </li>
+
+          <li>
+            <a href="https://wa.me/2349128802572" target="_blank" rel="noopener">
+              💬 WhatsApp
+            </a>
+          </li>
+
+          <li>
+            <a href="https://t.me/danitech01" target="_blank" rel="noopener">
+              ✈ Telegram: @danitech01
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <hr style="
+      margin:45px 0 30px;
+      border:none;
+      height:1px;
+      background:rgba(255,255,255,.08);
+    ">
+
+    <div class="footer-bottom" style="
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    ">
+
+      <p style="
+        color:#d8d8d8;
+        font-size:15px;
+      ">
+        © 2026 <strong>Dani-Tech</strong>. All Rights Reserved.
+      </p>
+
+      <p style="
+        color:#39FF14;
+        font-size:18px;
+        font-weight:700;
+      ">
+        Building Tomorrow's Technology Today.
+      </p>
+
+      <p style="
+        color:#ffffff;
+        font-weight:600;
+      ">
+        🇳🇬 Proudly Built in Nigeria.
+      </p>
+
+      <p style="
+  color:#A8B3C4;
+  letter-spacing:.8px;
+  line-height:1.8;
+  font-size:15px;
+  font-weight:500;
+">
+  AI Solutions • Robotics • Software Engineering • Smart Home Automation • Space Research • Future Technologies
+</p>
+
+    </div>
+
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
