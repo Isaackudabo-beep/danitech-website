@@ -478,16 +478,114 @@ form.addEventListener('submit', async (e) => {
     status.classList.add('ok');
     form.reset();
   } catch {
-    const subject = encodeURIComponent(`New inquiry from ${name} — ${service || 'General'}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService: ${service}\n\n${message}`);
-    status.textContent = 'The online form is unavailable. Your email app will open as a fallback.';
+    status.textContent = 'Your message was not saved because the secure message service is unavailable. Please try again later.';
     status.classList.add('err');
-    window.location.href = `mailto:danitech011@gmail.com?subject=${subject}&body=${body}`;
   } finally {
     submitButton.disabled = false;
     submitButton.removeAttribute('aria-busy');
   }
 });
+
+/* ============ PUBLISHED DATABASE CONTENT ============ */
+function escapePublicHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[char]));
+}
+
+function publicImageUrl(value, fallback = '') {
+  const source = typeof value === 'string' ? value.trim() : '';
+  if (!source) return fallback;
+  if (source.startsWith('/') && !source.startsWith('//') && !source.includes('\\')) return source;
+  try {
+    const url = new URL(source);
+    return ['https:', 'http:'].includes(url.protocol) ? url.href : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function publicLinkUrl(value) {
+  const source = typeof value === 'string' ? value.trim() : '';
+  if (/^mailto:[^\s@]+@[^\s@]+\.[^\s@]+$/i.test(source)) return source;
+  if (/^tel:\+?[0-9(). -]{5,30}$/i.test(source)) return source;
+  return publicImageUrl(source);
+}
+
+async function loadPublishedContent(type) {
+  try {
+    const response = await fetch(`/api/content?type=${encodeURIComponent(type)}`, { headers: { Accept: 'application/json' } });
+    if (!response.ok) return null;
+    const payload = await response.json();
+    return Array.isArray(payload.items) ? payload.items : null;
+  } catch {
+    return null;
+  }
+}
+
+async function syncPublishedContent() {
+  const [publishedProjects, publishedTeam, publishedTestimonials, publishedPartners] = await Promise.all([
+    loadPublishedContent('projects'),
+    loadPublishedContent('team_members'),
+    loadPublishedContent('testimonials'),
+    loadPublishedContent('partners'),
+  ]);
+
+  if (publishedProjects !== null) {
+    const fallbackImages = Object.fromEntries(projects.map((project) => [project.n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''), project.img]));
+    document.getElementById('projectsGrid').innerHTML = publishedProjects.map((project, index) => {
+      const slug = project.slug || '';
+      const image = publicImageUrl(project.screenshot_url, fallbackImages[slug] || '');
+      const status = project.status || '';
+      const statusClass = /coming soon/i.test(status) ? 'soon' : 'dev';
+      return `<div class="card project-card glass reveal">
+        ${image ? `<img src="${escapePublicHtml(image)}" alt="${escapePublicHtml(project.name)}" loading="lazy" style="width:100%;height:190px;object-fit:cover;border-radius:18px;margin-bottom:18px;">` : ''}
+        <div class="head"><span class="status ${statusClass}">${escapePublicHtml(status)}</span></div>
+        <h3>${escapePublicHtml(project.name)}</h3><p style="line-height:1.8;">${escapePublicHtml(project.description)}</p>
+        ${project.website_url ? `<a class="btn btn-ghost" href="${escapePublicHtml(publicImageUrl(project.website_url))}" target="_blank" rel="noopener noreferrer">Visit project</a>` : ''}
+        <div class="divider"></div><div class="foot"><span>Project · ${String(index + 1).padStart(2, '0')}</span><span>${icons.arrow}</span></div>
+      </div>`;
+    }).join('');
+  }
+
+  if (publishedTeam !== null) {
+    const staticProfiles = document.querySelectorAll('#leadershipContent > .founder');
+    staticProfiles.forEach((profile) => { profile.hidden = true; });
+    const teamGrid = document.getElementById('managedTeamGrid');
+    teamGrid.hidden = false;
+    teamGrid.innerHTML = publishedTeam.map((member) => {
+      const image = publicImageUrl(member.image_url);
+      const highlights = Array.isArray(member.highlights) ? member.highlights : [];
+      const links = Array.isArray(member.social_links) ? member.social_links : [];
+      return `<article class="founder glass-strong reveal managed-profile">
+        <div class="founder-photo">${image ? `<div class="photo-wrap"><img src="${escapePublicHtml(image)}" alt="${escapePublicHtml(member.name)}" loading="lazy"></div>` : '<div class="photo-wrap"></div>'}</div>
+        <div class="founder-body"><h3>${escapePublicHtml(member.name)}</h3><p class="founder-role">${escapePublicHtml(member.role)}</p><p class="founder-bio">${escapePublicHtml(member.bio)}</p>
+        ${highlights.length ? `<ul class="highlights">${highlights.map((item) => `<li><span class="check">✓</span> ${escapePublicHtml(item)}</li>`).join('')}</ul>` : ''}
+        ${links.length ? `<div class="socials">${links.map((link) => { const href = publicLinkUrl(link.url); const external = /^https?:/i.test(href); return `<a class="social" href="${escapePublicHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${escapePublicHtml(link.label)}</a>`; }).join('')}</div>` : ''}</div>
+      </article>`;
+    }).join('');
+    teamGrid.querySelectorAll('.reveal').forEach((element) => io.observe(element));
+  }
+
+  if (publishedTestimonials !== null) {
+    const cards = publishedTestimonials.map((item) => {
+      const image = publicImageUrl(item.image_url, 'images/logo.jpg');
+      return `<div class="testi-card glass"><div class="testi-head"><img src="${escapePublicHtml(image)}" alt="${escapePublicHtml(item.author_name)}" loading="lazy"><div><div class="n">${escapePublicHtml(item.author_name)}</div><div class="r">${escapePublicHtml(item.author_role)}</div></div></div><p>"${escapePublicHtml(item.quote)}"</p></div>`;
+    }).join('');
+    document.getElementById('testiTrack').innerHTML = cards + cards;
+  }
+
+  if (publishedPartners !== null) {
+    document.getElementById('partnersGrid').innerHTML = publishedPartners.map((partner) => {
+      const logo = publicImageUrl(partner.logo_url, 'images/logo.jpg');
+      return `<div class="partner-card glass reveal"><img src="${escapePublicHtml(logo)}" alt="${escapePublicHtml(partner.name)}" loading="lazy" style="width:90px;height:90px;object-fit:contain;margin:auto;display:block;border-radius:20px;margin-bottom:20px;"><h3 style="text-align:center;">${escapePublicHtml(partner.name)}</h3><p style="text-align:center;opacity:.8;line-height:1.7;">${escapePublicHtml(partner.description)}</p>${partner.website_url ? `<a href="${escapePublicHtml(publicImageUrl(partner.website_url))}" target="_blank" rel="noopener noreferrer">Visit website</a>` : ''}</div>`;
+    }).join('');
+    const logos = publishedPartners.map((partner) => publicImageUrl(partner.logo_url)).filter(Boolean);
+    document.getElementById('logoTrack').innerHTML = [...logos, ...logos, ...logos].map((logo) => `<div style="display:flex;align-items:center;justify-content:center;min-width:180px;padding:20px"><img src="${escapePublicHtml(logo)}" loading="lazy" alt="Partner logo" style="width:120px;height:120px;object-fit:contain;transition:.4s;filter:grayscale(10%)"></div>`).join('');
+  }
+}
+
+syncPublishedContent();
 
 /* ============ REVEAL ON SCROLL ============ */
 const io = new IntersectionObserver((entries) => {

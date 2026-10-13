@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "npx vercel dev",
-    "test": "node --test"
+    "test": "node --test",
+    "admin:create": "node scripts/create-admin.js"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2"

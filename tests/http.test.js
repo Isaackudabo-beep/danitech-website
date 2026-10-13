@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { isSameOrigin, readJsonBody } from './http.js';
+import { isSameOrigin, readJsonBody } from '../lib/server/http.js';
 
 test('same-origin validation allows same host and rejects a different host', () => {
   assert.equal(isSameOrigin({ headers: { host: 'danitech.example', origin: 'https://danitech.example' } }), true);

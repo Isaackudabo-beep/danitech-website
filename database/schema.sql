@@ -72,3 +72,5 @@ CREATE TABLE IF NOT EXISTS partners (
   created_at timestamptz NOT NULL DEFAULT now(),
   updated_at timestamptz NOT NULL DEFAULT now()
 );
+
+

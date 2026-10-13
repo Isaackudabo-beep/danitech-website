@@ -1,6 +1,6 @@
 import { createHash, createHmac } from 'node:crypto';
-import { getSql } from './_lib/db.js';
-import { isSameOrigin, readJsonBody, sendJson } from './_lib/http.js';
+import { getSql } from '../lib/server/db.js';
+import { isSameOrigin, readJsonBody, sendJson } from '../lib/server/http.js';
 
 const MAX_REQUESTS_PER_HOUR = 5;
 
@@ -8,12 +8,20 @@ function normalizeText(value, maxLength) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
 }
 
+export function validateContactSubmission(body) {
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return { error: 'Invalid request body.' };
+  if (normalizeText(body.website, 200)) return { honeypot: true };
+  const name = normalizeText(body.name, 100);
+  const email = normalizeText(body.email, 255).toLowerCase();
+  const service = normalizeText(body.service, 100);
+  const message = normalizeText(body.message, 2000);
+  if (!name || !email || !message) return { error: 'Name, email, and message are required.' };
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: 'Enter a valid email address.' };
+  return { values: { name, email, service, message } };
+}
+
 function getClientAddress(req) {
   if (typeof req.ip === 'string' && req.ip) return req.ip;
-  const forwardedFor = req.headers['x-forwarded-for'];
-  if (typeof forwardedFor === 'string' && forwardedFor) {
-    return forwardedFor.split(',')[0].trim();
-  }
   return 'unknown';
 }
 
@@ -41,23 +49,12 @@ export default async function handler(req, res) {
     return sendJson(res, 400, { error: 'Invalid request body.' });
   }
 
-  // Quietly accept bot honeypot submissions without saving them.
-  if (normalizeText(body.website, 200)) {
+  const validation = validateContactSubmission(body);
+  if (validation.honeypot) {
     return sendJson(res, 202, { ok: true });
   }
-
-  const name = normalizeText(body.name, 100);
-  const email = normalizeText(body.email, 255).toLowerCase();
-  const service = normalizeText(body.service, 100);
-  const message = normalizeText(body.message, 2000);
-
-  if (!name || !email || !message) {
-    return sendJson(res, 400, { error: 'Name, email, and message are required.' });
-  }
-
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return sendJson(res, 400, { error: 'Enter a valid email address.' });
-  }
+  if (validation.error) return sendJson(res, 400, { error: validation.error });
+  const { name, email, service, message } = validation.values;
 
   try {
     const sql = getSql();

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Dani-Tech Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <main id="loginView" class="login-shell" hidden>
+    <section class="login-card">
+      <a class="brand" href="/"><span class="brand-mark">D</span><span><b>Dani-Tech</b><small>SECURE ADMIN</small></span></a>
+      <p class="eyebrow">PRIVATE WORKSPACE</p>
+      <h1>Welcome back.</h1>
+      <p class="subtle">Sign in to manage the Dani-Tech website.</p>
+      <form id="loginForm" class="stack-form">
+        <label>Email<input name="email" type="email" autocomplete="username" required maxlength="255" /></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required maxlength="1024" /></label>
+        <button class="button primary" type="submit">Sign in <span aria-hidden="true">→</span></button>
+      </form>
+      <p id="loginStatus" class="notice" role="status" aria-live="polite"></p>
+      <a class="back-link" href="/">← Back to Dani-Tech</a>
+    </section>
+  </main>
+
+  <div id="dashboardView" class="app-shell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/"><span class="brand-mark">D</span><span><b>Dani-Tech</b><small>ADMIN CONSOLE</small></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav id="mainNav" class="main-nav" aria-label="Admin sections">
+        <button data-view="overview" class="nav-item active"><span>◈</span> Overview</button>
+        <button data-view="messages" class="nav-item"><span>✉</span> Messages <i id="unreadBadge" class="badge" hidden></i></button>
+        <div class="side-label content-label">CONTENT</div>
+        <button data-view="projects" class="nav-item"><span>▧</span> Projects</button>
+        <button data-view="team_members" class="nav-item"><span>◉</span> Developers & team</button>
+        <button data-view="testimonials" class="nav-item"><span>❝</span> Testimonials</button>
+        <button data-view="partners" class="nav-item"><span>◇</span> Partners</button>
+      </nav>
+      <div class="sidebar-bottom"><a href="/" class="nav-item back-link">↗ View website</a><button id="logoutButton" class="nav-item logout">⇥ Sign out</button></div>
+    </aside>
+
+    <section class="main-area">
+      <header class="topbar">
+        <button id="mobileMenu" class="icon-button mobile-menu" aria-label="Open navigation">☰</button>
+        <div><span class="eyebrow">DANI-TECH / ADMIN</span><strong id="pageTitle">Overview</strong></div>
+        <div class="user-chip"><span class="online-dot"></span><span id="adminEmail"></span></div>
+      </header>
+      <main class="page-content">
+        <div id="pageStatus" class="notice" role="status" aria-live="polite"></div>
+        <section id="overviewPanel" class="panel view-panel">
+          <div class="page-heading"><div><p class="eyebrow">YOUR CONTROL CENTER</p><h1>Good to see you.</h1><p class="subtle">A live snapshot of the Dani-Tech website.</p></div></div>
+          <div id="statsGrid" class="stats-grid"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+          <div class="panel-card overview-note"><div class="note-icon">✦</div><div><h2>Your brand, one workspace.</h2><p>Manage incoming inquiries and keep your public content current. Published changes appear on the existing Dani-Tech website.</p></div></div>
+        </section>
+
+        <section id="messagesPanel" class="panel view-panel" hidden>
+          <div class="page-heading"><div><p class="eyebrow">INBOX</p><h1>Contact messages</h1><p class="subtle">Private inquiries received through your website.</p></div><button id="refreshMessages" class="button secondary">↻ Refresh</button></div>
+          <div id="messagesList" class="message-list"><div class="empty-state">Loading messages…</div></div>
+        </section>
+
+        <section id="contentPanel" class="panel view-panel" hidden>
+          <div class="page-heading"><div><p id="contentEyebrow" class="eyebrow">PUBLISHED ON YOUR SITE</p><h1 id="contentTitle">Projects</h1><p id="contentDescription" class="subtle">Manage the content shown on Dani-Tech.</p></div><button id="addContentButton" class="button primary">＋ Add new</button></div>
+          <div id="contentList" class="content-list"><div class="empty-state">Loading content…</div></div>
+        </section>
+      </main>
+    </section>
+    <div id="mobileBackdrop" class="mobile-backdrop"></div>
+  </div>
+  <dialog id="editorDialog" class="editor-dialog"><form id="editorForm" class="editor-form" method="dialog"><div class="dialog-heading"><div><p class="eyebrow">CONTENT EDITOR</p><h2 id="editorTitle">Add item</h2></div><button type="button" class="icon-button" id="closeEditor" aria-label="Close">×</button></div><div id="editorFields" class="editor-fields"></div><p id="editorStatus" class="notice" role="status"></p><div class="dialog-actions"><button type="button" id="cancelEditor" class="button secondary">Cancel</button><button type="submit" class="button primary">Save changes</button></div></form></dialog>
+  <script src="/admin/admin.js" defer></script>
+</body>
+</html>

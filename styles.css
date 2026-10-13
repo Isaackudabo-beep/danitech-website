@@ -544,6 +544,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 /* leaders stack */
 .leaders { display: grid; gap: 2rem; }
+.managed-team-grid { display: grid; gap: 2rem; }
+.managed-profile .photo-wrap { display: grid; place-items: center; overflow: hidden; }
+.managed-profile .photo-wrap:not(:has(img))::after { content: "D"; color: #000; font-size: 4rem; font-weight: 900; }
 .founder.reverse { grid-template-columns: 1fr auto; }
 .founder.reverse .founder-photo { order: 2; }
 @media (max-width: 860px) {
